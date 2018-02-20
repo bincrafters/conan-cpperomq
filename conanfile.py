@@ -23,7 +23,7 @@ class CpperoMQConan(ConanFile):
     def source(self):
         source_url = "https://github.com/jship/cpperomq"
         tools.get("{0}/archive/v{1}.tar.gz".format(source_url, self.version))
-        extracted_dir = self.name + "-" + self.version
+        extracted_dir = "CpperoMQ-" + self.version
 
         os.rename(extracted_dir, self.source_subfolder)
 
