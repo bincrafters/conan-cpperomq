@@ -10,12 +10,10 @@ class CpperoMQConan(ConanFile):
     name = "cpperomq"
     version = "0.0.5"
     url = "https://github.com/bincrafters/conan-cpperomq"
-    description = "Keep it short"
+    description = "ZeroMQ C++ binding"
     license = "MIT"
     exports = ["LICENSE.md"]
-
     source_subfolder = "source_subfolder"
-    build_subfolder = "build_subfolder"
 
     def requirements(self):
         self.requires.add('zmq/4.2.2@bincrafters/stable')
@@ -30,7 +28,7 @@ class CpperoMQConan(ConanFile):
     def package(self):
         include_folder = os.path.join(self.source_subfolder, "include")
         self.copy(pattern="*.hpp", dst='include', src=include_folder, keep_path=True)
-        self.copy(pattern="LICENSE", dst="license", src=self.source_subfolder)
+        self.copy(pattern="LICENSE", dst="licenses", src=self.source_subfolder)
 
     def package_info(self):
         self.info.header_only()
