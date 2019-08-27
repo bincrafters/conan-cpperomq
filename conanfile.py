@@ -14,8 +14,8 @@ class CpperoMQConan(ConanFile):
     license = "MIT"
     exports = ["LICENSE.md"]
 
-    source_subfolder = "source_subfolder"
-    build_subfolder = "build_subfolder"
+    _source_subfolder = "source_subfolder"
+    _build_subfolder = "build_subfolder"
 
     def requirements(self):
         self.requires.add('zmq/4.2.2@bincrafters/stable')
@@ -25,12 +25,12 @@ class CpperoMQConan(ConanFile):
         tools.get("{0}/archive/v{1}.tar.gz".format(source_url, self.version))
         extracted_dir = "CpperoMQ-" + self.version
 
-        os.rename(extracted_dir, self.source_subfolder)
+        os.rename(extracted_dir, self._source_subfolder)
 
     def package(self):
-        include_folder = os.path.join(self.source_subfolder, "include")
+        include_folder = os.path.join(self._source_subfolder, "include")
         self.copy(pattern="*.hpp", dst='include', src=include_folder, keep_path=True)
-        self.copy(pattern="LICENSE", dst="license", src=self.source_subfolder)
+        self.copy(pattern="LICENSE", dst="license", src=self._source_subfolder)
 
     def package_info(self):
         self.info.header_only()
