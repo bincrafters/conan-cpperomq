@@ -8,7 +8,6 @@ class CpperoMQConan(ConanFile):
     url = "https://github.com/bincrafters/conan-cpperomq"
     description = "Keep it short"
     license = "MIT"
-    exports = ["LICENSE.md"]
 
     _source_subfolder = "source_subfolder"
     _build_subfolder = "build_subfolder"
