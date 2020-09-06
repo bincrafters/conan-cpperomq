@@ -13,7 +13,7 @@ class CpperoMQConan(ConanFile):
     _build_subfolder = "build_subfolder"
 
     def requirements(self):
-        self.requires.add('zeromq/4.3.2')
+        self.requires('zeromq/4.3.2')
 
     def source(self):
         source_url = "https://github.com/jship/cpperomq"
